@@ -50,6 +50,13 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <175>;
+            // if a key is tapped again within this window it always sends the tap (no mod),
+            // preventing missed repeated letters; matched to the global &mt value for consistency
+            quick-tap-ms = <150>;
+            // mod only activates if the keyboard was idle for this long before the hold,
+            // preventing accidental mods during fast typing rolls; set slightly below tapping-term
+            // so it only blocks mid-word sequences without slowing intentional modifier use
+            require-prior-idle-ms = <120>;
         };
 
         dot_comma: dot_comma {
