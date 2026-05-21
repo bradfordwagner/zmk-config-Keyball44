@@ -215,10 +215,10 @@
         // corne pos 38 → KB44 pos 40  |  corne pos 37 → KB44 pos 39
         // Layer map: corne 5(ploopy)→5(SCROLL), 6(paren)→7(PAREN), 7(mouse)→4(MOUSE)
 
-        to_mouse {
-            bindings = <&to 4>;
+        to_scroll {
+            bindings = <&to 5>;
             key-positions = <40 17>;
-            layers = <0 7 4>;
+            layers = <0 7 4 5>;
         };
 
         to_home {
@@ -227,8 +227,8 @@
             layers = <5 0 7 4>;
         };
 
-        to_ploopy {
-            bindings = <&to 5>;
+        to_mouse {
+            bindings = <&to 4>;
             key-positions = <40 15>;
             layers = <0 5 7 4>;
         };
