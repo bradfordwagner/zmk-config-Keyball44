@@ -275,7 +275,7 @@
         cmd {
             bindings = <&kp LEFT_COMMAND>;
             key-positions = <26 27>;
-            layers = <0>;
+            layers = <0 4 6>;
         };
 
         continuous {
