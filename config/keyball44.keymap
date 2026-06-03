@@ -362,7 +362,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&none   &none   &trans  &trans  &trans              &trans  &trans                                  &trans
+&none   &none   &mkp MCLK  &mkp LCLK  &mkp RCLK              &trans  &trans                                  &trans
             >;
         };
 
