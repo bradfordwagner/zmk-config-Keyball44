@@ -11,13 +11,15 @@ Steps:
    - LEFT: the file matching `*keyball44_left*.uf2`
    - RIGHT: the file matching `*keyball44_right*.uf2`
 8. Flash left half:
-   - Tell the user: "Double-click reset on the LEFT half to enter bootloader mode."
-   - Wait for /Volumes/NICENANO to appear: `until [ -d /Volumes/NICENANO ]; do sleep 1; done`
-   - Copy the left .uf2: `cp "<left_uf2>" /Volumes/NICENANO/`
-   - Tell the user the left half is flashed and wait for the volume to disappear: `while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - Output this message in bold so the user sees it before approving:
+     **ACTION REQUIRED: Double-click reset on the LEFT half to enter bootloader mode, then approve the next command.**
+   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear:
+     `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<left_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - Tell the user the left half is flashed.
 9. Flash right half:
-   - Tell the user: "Double-click reset on the RIGHT half to enter bootloader mode."
-   - Wait for /Volumes/NICENANO to appear: `until [ -d /Volumes/NICENANO ]; do sleep 1; done`
-   - Copy the right .uf2: `cp "<right_uf2>" /Volumes/NICENANO/`
-   - Tell the user the right half is flashed and wait for the volume to disappear: `while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - Output this message in bold so the user sees it before approving:
+     **ACTION REQUIRED: Double-click reset on the RIGHT half to enter bootloader mode, then approve the next command.**
+   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear:
+     `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<right_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - Tell the user the right half is flashed.
 10. Report success: both halves flashed. Remind the user that `settings_reset-nice_nano_v2-zmk.uf2` is available in ~/Downloads/zmk-flash/firmware/ if they need to wipe BLE pairing.
