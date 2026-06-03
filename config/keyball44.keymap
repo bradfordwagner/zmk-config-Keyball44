@@ -355,9 +355,8 @@
         snipe_layer {
             label = "SNIPE";
 
-            // snipe-layers = <6> is commented out in keyball44_right.overlay — no CPI reduction
-            // CONFIG_PMW3610_SNIPE_CPI / SNIPE_CPI_DIVIDOR commented out in keyball44_right.conf
-            // Layer kept as transparent passthrough; re-enable overlay line to restore snipe behavior
+            // Hold ESC (lt 6 ESCAPE) in mouse layer to activate. CPI drops to 300 (from 600 normal).
+            // snipe-layers = <6> in keyball44_right.overlay, CONFIG_PMW3610_SNIPE_CPI=300 in keyball44_right.conf
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
