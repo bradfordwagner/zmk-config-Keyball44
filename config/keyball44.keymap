@@ -374,8 +374,8 @@
         snipe_layer {
             label = "SNIPE";
 
-            // Hold ESC (lt 6 ESCAPE) in mouse layer to activate. CPI drops to 400 (from 800 normal).
-            // snipe-layers = <6> in keyball44_right.overlay, CONFIG_PMW3610_SNIPE_CPI=400 in keyball44_right.conf
+            // Hold ESC (lt 6 ESCAPE) in mouse layer to activate. CPI rises to 800 (from 400 normal).
+            // snipe-layers = <6> in keyball44_right.overlay, CONFIG_PMW3610_SNIPE_CPI=800 in keyball44_right.conf
 
             bindings = <
 &trans  &trans  &trans     &trans     &trans          &trans              &trans  &trans  &trans  &trans  &trans  &trans
