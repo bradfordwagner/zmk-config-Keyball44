@@ -52,7 +52,7 @@
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <175>;
+            tapping-term-ms = <150>;
 
             // if a key is tapped again within this window it always sends the tap (no mod),
             // preventing missed repeated letters; matched to the global &mt value for consistency
@@ -63,7 +63,7 @@
             // preventing accidental mods during fast typing rolls; set slightly below tapping-term
             // so it only blocks mid-word sequences without slowing intentional modifier use
 
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <100>;
         };
 
         dot_comma: dot_comma {
