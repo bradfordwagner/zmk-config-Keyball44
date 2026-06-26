@@ -10,16 +10,38 @@ Steps:
 7. Find the left and right .uf2 file paths:
    - LEFT: the file matching `*keyball44_left*.uf2`
    - RIGHT: the file matching `*keyball44_right*.uf2`
-8. Flash left half:
+8. Detect the OS to determine how to flash:
+   - If `uname -r` contains `microsoft` (WSL), use the WSL flash method below.
+   - Otherwise (macOS), use `/Volumes/NICENANO` as the mount path.
+
+   **WSL flash method** (use in steps 9 and 10):
+   WSL2 does not auto-mount USB drives, so use PowerShell's Copy-Item directly.
+   Convert the WSL file path to a Windows path with `wslpath -w`, then poll until
+   the NICENANO volume appears and copy via PowerShell:
+   ```bash
+   PS=/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+   WIN_SRC=$(wslpath -w "<uf2_path>")
+   DRIVE=""
+   while [ -z "$DRIVE" ]; do
+     DRIVE=$($PS -Command "Get-Volume -FileSystemLabel NICENANO -ErrorAction SilentlyContinue | Select-Object -ExpandProperty DriveLetter" | tr -d '\r\n')
+     sleep 1
+   done
+   $PS -Command "Copy-Item -Path '$WIN_SRC' -Destination '${DRIVE}:\'"
+   while [ -n "$($PS -Command "Get-Volume -FileSystemLabel NICENANO -ErrorAction SilentlyContinue | Select-Object -ExpandProperty DriveLetter" | tr -d '\r\n')" ]; do sleep 1; done
+   ```
+
+9. Flash left half:
    - Output this message in bold so the user sees it before approving:
      **ACTION REQUIRED: Double-click reset on the LEFT half to enter bootloader mode, then approve the next command.**
-   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear:
-     `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<left_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear.
+   - macOS: `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<left_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - WSL: use the WSL flash method from step 8 with `<left_uf2>` path.
    - Tell the user the left half is flashed.
-9. Flash right half:
+10. Flash right half:
    - Output this message in bold so the user sees it before approving:
      **ACTION REQUIRED: Double-click reset on the RIGHT half to enter bootloader mode, then approve the next command.**
-   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear:
-     `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<right_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - In a SINGLE Bash call (so it only needs one approval), wait for the volume, copy, and wait for it to disappear.
+   - macOS: `until [ -d /Volumes/NICENANO ]; do sleep 1; done && cp "<right_uf2>" /Volumes/NICENANO/ ; while [ -d /Volumes/NICENANO ]; do sleep 1; done`
+   - WSL: use the WSL flash method from step 8 with `<right_uf2>` path.
    - Tell the user the right half is flashed.
-10. Report success: both halves flashed. Remind the user that `settings_reset-nice_nano_v2-zmk.uf2` is available in ~/Downloads/zmk-flash/firmware/ if they need to wipe BLE pairing.
+11. Report success: both halves flashed. Remind the user that `settings_reset-nice_nano_v2-zmk.uf2` is available in ~/Downloads/zmk-flash/firmware/ if they need to wipe BLE pairing.
