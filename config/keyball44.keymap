@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "COPY_PASTE";
             #binding-cells = <0>;
-            bindings = <&kp LG(C)>, <&kp LG(V)>;
+            bindings = <&kp LC(C)>, <&kp LC(V)>;
         };
 
         home_row: home_row {
