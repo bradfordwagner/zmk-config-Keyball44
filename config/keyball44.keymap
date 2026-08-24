@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "COPY_PASTE";
             #binding-cells = <0>;
-            bindings = <&kp LC(C)>, <&kp LC(V)>;
+            bindings = <&kp LG(C)>, <&kp LG(V)>;
         };
 
         home_row: home_row {
@@ -350,7 +350,7 @@
             // automouse-layer = <4> in keyball44_right.overlay activates this layer on trackball movement
 
             bindings = <
-&kp LS(LG(NUMBER_4))  &mkp MB4         &mkp MB5        &kp LC(LS(TAB))           &kp LC(TAB)                &kp LG(R)             &trans          &trans            &trans          &trans           &trans  &trans
+&kp LS(LG(NUMBER_4))  &mkp MB4         &mkp MB5        &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp LG(R)             &trans          &trans            &trans          &trans           &trans  &trans
 &lt 6 ESCAPE          &trans           &trans          &trans                    &trans                     &kp ENTER             &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_UP    &mmv MOVE_RIGHT  &trans  &trans
 &trans                &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_DOWN            &msc SCRL_UP               &kp LG(W)             &trans          &kp C_PLAY_PAUSE  &kp C_PREVIOUS  &kp C_NEXT       &trans  &trans
 &none                 &none            &mkp MCLK       &mkp LCLK                 &mo_mkp 5 RCLK                            &to 5  &to 4                                                                      &to 0
@@ -364,7 +364,7 @@
             // This layer also contains the ploopy (external trackball) bindings from the corne config
 
             bindings = <
-&kp LG(LS(NUMBER_4))  &mkp MB4         &mkp MB5        &kp LC(LS(TAB))           &kp LC(TAB)                &kp LG(R)              &trans          &trans          &trans        &trans           &trans  &trans
+&kp LG(LS(NUMBER_4))  &mkp MB4         &mkp MB5        &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp LG(R)              &trans          &trans          &trans        &trans           &trans  &trans
 &trans                &trans           &trans          &trans                    &trans                     &kt ENTER              &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
 &trans                &msc SCRL_RIGHT  &msc SCRL_LEFT  &msc SCRL_DOWN            &msc SCRL_UP               &kp LG(W)              &trans          &trans          &trans        &trans           &trans  &trans
 &none                 &none            &mkp MCLK       &mkp LCLK                 &mkp RCLK                                 &trans  &to 4                                                                  &to 0
