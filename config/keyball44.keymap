@@ -28,6 +28,7 @@
  *   LC(LS(TAB))       -> LS(LG(LEFT_BRACKET))   previous tab
  *   LC(TAB)           -> LS(LG(RIGHT_BRACKET))  next tab (also PAREN layer)
  *   LG(LS(S))         -> LS(LG(NUMBER_4))    screenshot
+ *   LG(LS(RIGHT_ARROW)) (win_monitor_swap combo) -> no macOS equivalent; remove the combo
  */
 
 &nice_view_spi { cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>; };
@@ -308,6 +309,14 @@
             bindings = <&kp GRAVE>;
             key-positions = <16 39>;
             layers = <3>;
+        };
+
+        // Windows only: move window to other monitor (wraps with two monitors). Y+U.
+        win_monitor_swap {
+            bindings = <&kp LG(LS(RIGHT_ARROW))>;
+            key-positions = <6 7>;
+            layers = <0>;
+            require-prior-idle-ms = <150>;
         };
     };
 
