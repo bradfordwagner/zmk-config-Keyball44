@@ -50,7 +50,7 @@
 / {
     macros {
         // Windows only: swap windows across two monitors.
-        // Move current window over, Alt+Tab to the previous window, move it over, Alt+Tab back.
+        // Move current window over, Alt+Tab to the previous window, move it over. Focus ends on the previous window.
         win_swap_windows: win_swap_windows {
             compatible = "zmk,behavior-macro";
             label = "WIN_SWAP_WINDOWS";
@@ -59,8 +59,7 @@
             tap-ms = <40>;
             bindings = <&macro_tap &kp LG(LS(RIGHT_ARROW))>,
                        <&macro_tap &kp LA(TAB)>,
-                       <&macro_tap &kp LG(LS(RIGHT_ARROW))>,
-                       <&macro_tap &kp LA(TAB)>;
+                       <&macro_tap &kp LG(LS(RIGHT_ARROW))>;
         };
     };
 
