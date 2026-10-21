@@ -18,6 +18,14 @@ Changing a sample time also changes the valid range for its downshift — always
 
 `config/keyball44.keymap` has an "OS profile" `#define` block at the top. It is a preprocessor switch, not a Kconfig or build flag. One block is active, the other is commented out. Switching OS means swapping which block is commented.
 
+To switch OS:
+1. In the OS profile block at the top of `config/keyball44.keymap`, comment out every `#define` under the active heading (`// Windows` or `// macOS`).
+2. Uncomment every `#define` under the other heading. All six defines must come from the same block: `OS_MOD`, `K_COPY`, `K_PASTE`, `K_TAB_PREV`, `K_TAB_NEXT`, `K_SHOT`.
+3. Commit, push, wait for the CI build, then flash both halves (`/flash`).
+4. Test copy/paste in a browser and a terminal, plus tab keys and the screenshot key.
+
+Web keymap editor (nickcoutsos.github.io/keymap-editor) does not work with this keymap: it cannot parse custom preprocessor macros and shows "Could not parse keymap". Edit the keymap by hand. The firmware build is not affected.
+
 Defines: `OS_MOD(k)`, `K_COPY`, `K_PASTE`, `K_TAB_PREV`, `K_TAB_NEXT`, `K_SHOT`. Values are in `README.md`.
 
 Use sites:
