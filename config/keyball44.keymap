@@ -28,7 +28,7 @@
  *   LC(LS(TAB))       -> LS(LG(LEFT_BRACKET))   previous tab
  *   LC(TAB)           -> LS(LG(RIGHT_BRACKET))  next tab (also PAREN layer)
  *   LG(LS(S))         -> LS(LG(NUMBER_4))    screenshot
- *   LG(LS(RIGHT_ARROW)) (win_monitor_swap combo) -> no macOS equivalent; remove the combo
+ *   win_swap_windows macro / win_monitor_swap combo -> no macOS equivalent; remove the combo
  */
 
 &nice_view_spi { cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>; };
@@ -48,6 +48,22 @@
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
+    macros {
+        // Windows only: swap windows across two monitors.
+        // Move current window over, Alt+Tab to the previous window, move it over, Alt+Tab back.
+        win_swap_windows: win_swap_windows {
+            compatible = "zmk,behavior-macro";
+            label = "WIN_SWAP_WINDOWS";
+            #binding-cells = <0>;
+            wait-ms = <80>;
+            tap-ms = <40>;
+            bindings = <&macro_tap &kp LG(LS(RIGHT_ARROW))>,
+                       <&macro_tap &kp LA(TAB)>,
+                       <&macro_tap &kp LG(LS(RIGHT_ARROW))>,
+                       <&macro_tap &kp LA(TAB)>;
+        };
+    };
+
     behaviors {
         copy_paste: copy_paste {
             compatible = "zmk,behavior-tap-dance";
@@ -311,9 +327,9 @@
             layers = <3>;
         };
 
-        // Windows only: move window to other monitor (wraps with two monitors). Y+U.
+        // Windows only: swap current + previous window across two monitors. Y+U.
         win_monitor_swap {
-            bindings = <&kp LG(LS(RIGHT_ARROW))>;
+            bindings = <&win_swap_windows>;
             key-positions = <6 7>;
             layers = <0>;
             require-prior-idle-ms = <150>;
