@@ -29,13 +29,17 @@
  */
 
 // Windows
-#define OS_MOD(k)  LC(k)                 // copy / paste / reload / close tab
+#define OS_MOD(k)  LC(k)                 // reload / close tab
+#define K_COPY     LC(INSERT)            // copy -- works in terminals and browsers
+#define K_PASTE    LS(INSERT)            // paste -- works in terminals and browsers
 #define K_TAB_PREV LC(LS(TAB))           // previous browser tab
 #define K_TAB_NEXT LC(TAB)               // next browser tab
 #define K_SHOT     LG(LS(S))             // region screenshot -- LG is the Win key here
 
 // macOS
 // #define OS_MOD(k)  LG(k)
+// #define K_COPY     LG(C)
+// #define K_PASTE    LG(V)
 // #define K_TAB_PREV LS(LG(LEFT_BRACKET))
 // #define K_TAB_NEXT LS(LG(RIGHT_BRACKET))
 // #define K_SHOT     LS(LG(NUMBER_4))
@@ -62,7 +66,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "COPY_PASTE";
             #binding-cells = <0>;
-            bindings = <&kp OS_MOD(C)>, <&kp OS_MOD(V)>;
+            bindings = <&kp K_COPY>, <&kp K_PASTE>;
         };
 
         home_row: home_row {
