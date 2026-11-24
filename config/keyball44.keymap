@@ -301,19 +301,19 @@
         tab_prev {
             bindings = <&kp LS(LG(LEFT_BRACKET))>;
             key-positions = <13 40>;
-            layers = <5 7 4 3>;
+            layers = <5 7 4>;
         };
 
         tab_next {
             bindings = <&kp LS(LG(RIGHT_BRACKET))>;
             key-positions = <14 40>;
-            layers = <3 5 7 4>;
+            layers = <5 7 4>;
         };
 
         tab_refresh {
             bindings = <&kp LG(R)>;
             key-positions = <14 13 40>;
-            layers = <3 5 7 4>;
+            layers = <5 7 4>;
         };
 
         equal {
@@ -355,7 +355,31 @@
             require-prior-idle-ms = <100>;
         };
 
-        // GM1 number combo on the bottom row: V+B = positions 28+29
+        // GM1 number combos on the bottom row: Z X C V B = positions 25-29
+        gm_1 {
+            bindings = <&kp NUMBER_1>;
+            key-positions = <25 26>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        gm_2 {
+            bindings = <&kp NUMBER_2>;
+            key-positions = <26 27>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        gm_3 {
+            bindings = <&kp NUMBER_3>;
+            key-positions = <27 28>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
         gm_4 {
             bindings = <&kp NUMBER_4>;
             key-positions = <28 29>;
