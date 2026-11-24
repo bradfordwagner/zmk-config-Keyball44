@@ -346,6 +346,15 @@
             layers = <3>;
         };
 
+        // GM1 overlay map: Space + G = Ctrl+Space (same shape as g-grave, one key over)
+        gm_overlay_map {
+            bindings = <&kp LC(SPACE)>;
+            key-positions = <17 39>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
         // GM1 number combo on the bottom row: V+B = positions 28+29
         gm_4 {
             bindings = <&kp NUMBER_4>;
