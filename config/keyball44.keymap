@@ -346,6 +346,39 @@
             layers = <3>;
         };
 
+        // GM1 number combos on the bottom row: Z X C V B = positions 25-29
+        gm_1 {
+            bindings = <&kp NUMBER_1>;
+            key-positions = <25 26>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        gm_2 {
+            bindings = <&kp NUMBER_2>;
+            key-positions = <26 27>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        gm_3 {
+            bindings = <&kp NUMBER_3>;
+            key-positions = <27 28>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        gm_4 {
+            bindings = <&kp NUMBER_4>;
+            key-positions = <28 29>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
     };
 
     keymap {
