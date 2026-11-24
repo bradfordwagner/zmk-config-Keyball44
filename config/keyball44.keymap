@@ -355,6 +355,14 @@
             require-prior-idle-ms = <100>;
         };
 
+        // GM1 sticky Ctrl+Shift: Space + Bksp/Shift thumbs, next key press goes out as Ctrl+Shift+key
+        gm_ctrl_shift {
+            bindings = <&sk LC(LSHIFT)>;
+            key-positions = <39 40>;
+            layers = <3>;
+            timeout-ms = <35>;
+        };
+
         // GM1 number combos on the bottom row: Z X C V B = positions 25-29
         gm_1 {
             bindings = <&kp NUMBER_1>;
