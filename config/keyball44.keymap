@@ -355,10 +355,19 @@
             require-prior-idle-ms = <100>;
         };
 
-        // GM1 sticky Ctrl+Shift: Space + Bksp/Shift thumbs, next key press goes out as Ctrl+Shift+key
+        // GM1 map: Space + D = M
+        gm_map {
+            bindings = <&kp M>;
+            key-positions = <15 39>;
+            layers = <3>;
+            timeout-ms = <35>;
+            require-prior-idle-ms = <100>;
+        };
+
+        // GM1 sticky Ctrl+Shift: Tab + Esc, next key press goes out as Ctrl+Shift+key
         gm_ctrl_shift {
             bindings = <&sk LC(LSHIFT)>;
-            key-positions = <39 40>;
+            key-positions = <0 12>;
             layers = <3>;
             timeout-ms = <35>;
         };
